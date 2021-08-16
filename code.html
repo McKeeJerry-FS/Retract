@@ -55,17 +55,54 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        // Call Hello World
-                        function helloWorld(){
-                            alert("Hello World");
+                        
+                        // Get the values from the page
+                        // Get the string
+                        // Controller Function
+                        function getValues() {
+                            document.getElementById("alert").classList.add("invisible");
+                            
+                            let userString = document.getElementById("userString").value;
+                            
+                            let revString = reverseString(userString);
+                            
+                            displayString(revString);
+                        }
+
+                        // Reverse the string
+                        // Logic Function
+                        function reverseString(userString) {
+                            
+                            let revString = [];
+
+                            // reverse a string using a for loop
+                            for (let index = userString.length - 1; index >= 0; index--) {
+                                revString += userString[index];
+                            }
+                            return revString;    
+                        }
+
+                        // Display the reversed string to the user
+                        // View Function
+                        function displayString(revstring) {
+                            // write the message to the page
+                            document.getElementById("msg").innerHTML = `Your string reversed is: ${revstring}`;
+                            // show the alert box
+                            document.getElementById("alert").classList.remove("invisible");
                         }
                     </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                    <p>The Code for this application is structured into three sections; CONTROLLER, LOGIC, and VIEW </p>
+                    <h5>CONTROLLER: getValues();</h5>
+                    <p>In this block of the code the program is retrieving the strting that the user enters into the input box. Also, it is adding a class to the alert to set it to invisible. This will be removed when it is time to display the reversed string</p>
+                    <hr>
+                    <h5>LOGIC: reverseString();</h5>
+                    <p>In this function, the string will be reversed. I will be using a for loop() to take the string the user enters and cycle through each character. The characters will then be added to an array reversed and ready to be displayed.</p>
+                    <hr>
+                    <h5>VIEW: displayString()</h5>
+                    <p>With this block of code the "invisible" class is being removed from the alert and the Array is being passed in to be displayed to the user as the result.</p>
                 </div>
             </div>
         </div>
